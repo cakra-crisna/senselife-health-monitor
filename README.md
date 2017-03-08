@@ -1,5 +1,5 @@
-#Senselife : Real-time Health Monitoring System# 
-##Human Computer Interaction Project##
+#Senselife Real-time Health Monitoring System# 
+**Human Computer Interaction Project under the guidance of Dr. Filia Makedon (Director of Heracleia Lab & iPerform Center at UT Arlington)**
 
 ##Description:##
 • SenseLife is an android and web application which allows user to connect to all the wearable health sensors. It comes with heart rate monitoring system which alerts the user's emergency contacts in case of an emergency.
@@ -19,13 +19,21 @@ SenseLife system provides both *mobile* and *web application* interface to users
 ###**Mobile Application**###
 The mobile application provides the following features to the users: 
 •	Register: The user can register on SenseLife system using an email id. 
-•	Login: User can login to prevent unauthorized access. 
+
+•	Login: User can login to prevent unauthorized access.
+ 
 •	Power Device: User can use this toggle button to connect or disconnect the device.
+
 •	Dashboard: It displays the health data such as Heart Rate, Calories, Body temperature and Distance travelled by the user. The health data feed shown here is in real-time. 
+
 •	Devices: It permits the user to add multiple devices using the same application.
-•	Authorize Data: The user can share his physiological metric values with others by entering the email id of the person with whom he wants to share the data. Only the people who have been authorized by the user can view the shared data. (Figure 3)
+
+•	Authorize Data: The user can share his physiological metric values with others by entering the email id of the person with whom he wants to share the data. Only the people who have been authorized by the user can view the shared data. 
+
 •	Threshold Slider: The user can set a custom threshold value for heart rate, body temperature and calories, based on the activity he is performing. This is an attempt to reduce false positive alerts. 
+
 •	Emergency Trigger: Once user exceeds the threshold limit, an alert is triggered and a notification indicating it is sent to the user and the emergency contact. This is one of the novelties of this system. 
+
 •	Logout: User can safely log off from the application.
 
 ###**Web Application**###
