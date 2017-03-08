@@ -1,4 +1,4 @@
-#Senselife Real-time Health Monitoring System# 
+#Senselife Real-time Health Monitoring System 
 **Human Computer Interaction Project under the guidance of Dr. Filia Makedon (Director of Heracleia Lab & iPerform Center at UT Arlington)**
 
 ##Description:##
