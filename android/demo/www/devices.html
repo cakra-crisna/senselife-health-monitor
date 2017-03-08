@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8" />
+	<title>SenseLife | Devices</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+	
+	<!-- ================== BEGIN BASE CSS STYLE ================== -->
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+	<link href="assets/plugins/jquery-ui/themes/base/minified/jquery-ui.min.css" rel="stylesheet" />
+	<link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+	<link href="assets/css/animate.min.css" rel="stylesheet" />
+	<link href="assets/css/style.min.css" rel="stylesheet" />
+	<link href="assets/css/style-responsive.min.css" rel="stylesheet" />
+	<link href="assets/css/theme/default.css" rel="stylesheet" id="theme" />
+	<!-- ================== END BASE CSS STYLE ================== -->
+	
+	<!-- ================== BEGIN BASE JS ================== -->
+	<script src="assets/plugins/pace/pace.min.js"></script>
+	<!-- ================== END BASE JS ================== -->
+</head>
+<body>
+	<!-- begin #page-loader -->
+	<div id="page-loader" class="fade in"><span class="spinner"></span></div>
+	<!-- end #page-loader -->
+	
+	<!-- begin #page-container -->
+	<div id="page-container" class="fade page-sidebar-fixed page-header-fixed">
+		<!-- begin #header -->
+		<div id="header" class="header navbar navbar-default navbar-fixed-top">
+			<!-- begin container-fluid -->
+			<div class="container-fluid">
+				<!-- begin mobile sidebar expand / collapse button -->
+				<div class="navbar-header">
+					<a href="index.html" class="navbar-brand"><span class="navbar-logo"></span>SenseLife</a>
+					<button type="button" class="navbar-toggle" data-click="sidebar-toggled">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<!-- end mobile sidebar expand / collapse button -->
+				
+				<!-- begin header navigation right -->
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown navbar-user">
+						<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+							<img src="assets/img/user-13.jpg" alt="" /> 
+							<span class="hidden-xs">Hello, User</span> <b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu animated fadeInLeft">
+							<li class="arrow"></li>
+							<li class="divider"></li>
+							<li><a href="index.html">Log Out</a></li>
+						</ul>
+					</li>
+				</ul>
+				<!-- end header navigation right -->
+			</div>
+			<!-- end container-fluid -->
+		</div>
+		<!-- end #header -->
+		
+		<!-- begin #sidebar -->
+		<div id="sidebar" class="sidebar">
+			<!-- begin sidebar scrollbar -->
+			<div data-scrollbar="true" data-height="100%">
+				<!-- begin sidebar user -->
+				<ul class="nav">
+					<li class="nav-profile">
+						<div class="image">
+							<a href="javascript:;"><img src="assets/img/user-13.jpg" alt="" /></a>
+						</div>
+						<div class="info">
+							Hello, User
+							<small></small>
+						</div>
+					</li>
+				</ul>
+				<!-- end sidebar user -->
+				<!-- begin sidebar nav -->
+				<ul class="nav">
+					<li class="nav-header">Navigation</li>
+					
+					<li><a href="dashboard.html"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+                    <li><a href="devices.html"><i class="fa fa-laptop"></i> <span>Devices</span></a></li>
+                    <!-- <li><a href="emergency.html"><i class="fa fa-life-saver"></i> <span>Emergency Contacts</span></a></li> -->
+					<li><a href="userprofile.html"><i class="fa fa-user"></i> <span>Authorize Data</span></a></li>
+					<!-- begin sidebar minify button -->
+					<li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="fa fa-angle-double-left"></i></a></li>
+			        <!-- end sidebar minify button -->
+				</ul>
+				<!-- end sidebar nav -->
+			</div>
+			<!-- end sidebar scrollbar -->
+		</div>
+		<div class="sidebar-bg"></div>
+		<!-- end #sidebar -->
+		
+		<!-- begin #content -->
+		<div id="content" class="content">
+			<!-- begin page-header -->
+			<h1 class="page-header">User Devices</h1>
+			<!-- end page-header -->
+			
+			<!-- begin row -->
+			<div class="row">
+                <!-- begin col-6 -->
+			    <div class="col-md-8">
+			        <!-- begin panel -->
+                    <div class="panel panel-inverse" data-sortable-id="form-stuff-1">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">Your Devices</h4>
+                        </div>
+                        <div class="panel-body">
+                        	<button id="adddevice" href="#endofdaypopup" data-toggle="modal" class="btn btn-sm btn-info visible-xs">Add New Device</button>
+                            <table class="table table-responsibe table-striped">
+								<thead>
+									<tr>
+										<!-- <th>Device ID</th> -->
+										<th>Device Name</th>
+										<th>Default</th>
+										<th>&nbsp;</th>
+									</tr>
+								</thead>
+
+								<tbody id="devicelist">
+									
+								</tbody>
+							</table>
+							<p class="hidden-xs"> You can add new devices from mobile application </p>
+							<a href="dashboard.html" class="btn btn-sm btn-info visible-xs">Go to Dashboard </a>
+                        </div>
+                    </div>
+                    <!-- end panel -->
+                </div>
+                <!-- end col-6 -->
+            
+            </div>
+            <!-- end row -->
+            
+		</div>
+		<!-- end #content -->
+		
+        <!-- End of the day popup start -->
+	<div class="modal fade" id="endofdaypopup" style="display: none;">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					<h4 class="modal-title">Add New Device</h4>
+				</div>
+				<div class="modal-body">
+					<h3>Device List</h3>
+					<div id="refreshimg" style="display:none;" class="text-center"><i class="fa fa-spinner fa-spin" style="font-size:50px"></i></div>
+					
+					<table id="devicelisttable" class="table table-responsibe table-striped">
+								<thead>
+									<tr>
+										<th>Device ID</th>
+										<th>Device Name</th>
+										<th>&nbsp;</th>
+									</tr>
+								</thead>
+
+								<tbody id="bluetoothdevicelist">
+									<!-- <tr><td>1001</td><td>My device 2</td><td><input class="btn btn-xs btn-success" data-id="2" value="Add"></td></tr>
+									<tr><td>1001</td><td>My device 2</td><td><input class="btn btn-xs btn-success" data-id="2" value="Add"></td></tr>
+									 -->
+								</tbody>
+							</table>
+				</div>
+				<div class="modal-footer">
+					<button id="refreshdevices" type="button" class="btn btn-success btn-sm">
+					    <span class="glyphicon glyphicon-refresh">&nbsp;Refresh</span>
+  					</button>
+					<button href="javascript:;" class="btn btn-sm btn-white" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End of the day popup end -->
+
+		<!-- begin scroll to top btn -->
+		<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
+		<!-- end scroll to top btn -->
+	</div>
+	<!-- end page container -->
+	
+	<!-- ================== BEGIN BASE JS ================== -->
+	<script src="assets/plugins/jquery/jquery-1.9.1.min.js"></script>
+	<script src="assets/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
+	<script src="assets/plugins/jquery-ui/ui/minified/jquery-ui.min.js"></script>
+	<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+	<!--[if lt IE 9]>
+		<script src="assets/crossbrowserjs/html5shiv.js"></script>
+		<script src="assets/crossbrowserjs/respond.min.js"></script>
+		<script src="assets/crossbrowserjs/excanvas.min.js"></script>
+	<![endif]-->
+	<script src="assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+	<script src="assets/plugins/jquery-cookie/jquery.cookie.js"></script>
+	<script src="common.js"></script>
+	<!-- ================== END BASE JS ================== -->
+	
+	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+	<script src="assets/js/apps.min.js"></script>
+	<!-- ================== END PAGE LEVEL JS ================== -->
+	
+	<script>
+
+		function populateDevices(){
+			$.get(baseurl+"getalldevices/"+userid,function(data){
+				var text = "";
+				$.each(data.data,function(i,value){
+					text += "<tr>";
+					/*text+="<td>"+value.created_at+"</td>";
+					*/
+					/*text+="<td>"+value.deviceid+"</td>";*/
+					text+="<td>"+value.devicename+"</td>";
+					text+="<td class='setdefault'><input class='btn btn-xs btn-default setdefault' data-id='"+value.id+"'' type='submit' value='Default'></td>";
+					/*text+="<td>"+value.devicetype+"</td>";
+					*/text+="<td><input class='btn btn-xs btn-danger devicedelete' data-id='"+value.id+"'' type='submit' value='Delete'></td>"
+					text+="</tr>"
+				});
+				$("#devicelist").html(text);
+				$("input.devicedelete").one("click",function(){
+					var id = $(this).data("id");
+					$.get(baseurl+"deleteDevice/"+id,function(data){
+						//console.log(data);
+						populateDevices();
+					});
+				});
+
+				$("input.setdefault").one("click",function(){
+					var id = $(this).data("id");
+					$("input.setdefault").removeClass("btn-success").addClass('btn-default');
+					$(this).removeClass('btn-default').addClass('btn-success');
+				});
+
+				$("input.setdefault:first").removeClass('btn-default').addClass('btn-success');
+				
+			});
+			
+		}
+
+		$(document).ready(function() {
+			App.init();
+
+			
+			populateDevices();
+		});
+	</script>
+	<script type="text/javascript" src="cordova.js"></script>
+    
+    <script type="text/javascript" src="index1.js"></script>
+    <script type="text/javascript">
+	    $(document).ready(function(){
+	    	var deviceData = [{"name":"device name","macaddress":"1252"}];
+	    	var newDevice = {"name":"Verisign Wristband","macaddress":"58:3a"};
+	    	function onGetAllBands(evt) {
+  				//alert(JSON.stringify(evt));
+  				evt.push(newDevice);
+  				//alert(JSON.stringify(evt));
+  				var output = "";
+			    $.each(evt,function(i,data){
+			    	output += "<tr>";
+			    	output+="<td class='deviceid'>"+data.macaddress+"</td>";
+					output+="<td class='devicename'>"+data.name+"</td>";
+					output+="<td><input class='btn btn-xs btn-success add_device' type='submit' value='Add'></td>";
+			    	output+="</tr>";
+			    });
+			    
+			    $("#bluetoothdevicelist").html(output);
+			    $("#devicelisttable").show();
+				$("#refreshimg").hide();
+
+			    $("#bluetoothdevicelist input.add_device").on("click",function(){
+			    	alert("Adding..");
+			    	var devicename = $(this).parent("td").siblings("td.devicename").text();
+			    	var deviceId = $(this).parent("td").siblings("td.deviceid").text();
+			    	var devicetype = "Microsoft Health";
+
+			    	var obj = {};
+			    	obj["devicename"] = devicename;
+			    	obj["deviceid"] = deviceId;
+			    	obj["devicetype"] = devicetype;
+			    	obj["created_by"] = userid;
+
+			    	//alert(JSON.stringify(obj));
+			    	$.post(baseurl+"addnewdevice/"+userid,obj,function(response){
+	                    if(response.error){
+	                        console.log("error occured");
+	                        alert(response.message);
+	                    }
+	                    else{
+	                        alert(response.message);
+	                        $('#endofdaypopup').modal('toggle');
+	                        populateDevices();
+	                        //window.location = response.redirect+".html";
+	                    }
+	                });
+
+
+			    });
+			}
+
+			function onGetAllBandsError(err) {
+				alert("onGotVersionInfoError:err: " + JSON.stringify(err));
+			}
+
+			function onBandConnectSuccess1(){
+				alert("Bluetooth connected!");
+				isDeviceReady = true;
+				isBandConnected = true;
+				msband.getAllBands(onGetAllBands,onGetAllBandsError);
+			}
+			function onBandConnectError1(){
+				alert("Some problem with connecting to band");				
+			}
+
+			function getBandInfo() {
+				//onGetAllBands(deviceData);
+				msband.connect(onBandConnectSuccess1,onBandConnectError1);
+			}
+
+    		$("#refreshdevices").click(function(){
+				$("#devicelisttable").hide();
+				$("#refreshimg").show();
+				getBandInfo();
+			});
+
+	    });
+    </script>
+</body>
+</html>

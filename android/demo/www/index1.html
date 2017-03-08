@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+    <head>
+   <!--     <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *"> -->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <link href="index.css" rel="stylesheet" />
+
+        <title>Cordova MSBand Sensor Demo</title>
+    </head>
+    <body>
+
+   
+    <header class="headerBar" id="hdrBar">
+        <div class="headerBarTitle">Microsoft Band &amp; Apache Cordova Plugin</div>
+    </header>
+     <div id="accWrap">    
+        <ul class="accordion">
+            
+            <li id="infoView">
+                <a href="#infoView">Band Info<img id="bandIcon" src="img/iconBlack64-2x.png"></img></a>
+
+                <div class="sub-view">
+                    <table>
+                        <tr>
+                            <td colspan="2">Click the button to get the hardware and firmware version from the band.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <button class="actionButton" 
+                                        id="btnGetBandInfo">Get Band Info</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class='dvLabelValue'>Firmware</div>
+                            </td>
+                            <td>
+                                <div class="value" id="pFirmwareVersion"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class='dvLabelValue'>Hardware</div>
+                            </td>
+                            <td>
+                                <div class="value" id="pHardwareVersion"></div>
+                            </td>
+                        </tr>
+                    </table> 
+                    <div class="sensorOutput" id="txtBandInfo"></div>   
+
+            </li>
+
+
+            <li id="sensorsView">
+                <a href="#sensorsView">Sensors</a>
+
+                <div class="sub-view">
+                <p>This is where you can start and stop sensors
+                    <button class="actionButton"
+                            id="btnStopAllEvents">Stop All
+                    </button>
+                </p>
+                
+                <br><br><br>
+                    <ul>
+                        <li>
+                            <h3>Band Contact</h3>
+                            <p>Provides a way to let the developer know if someone is currently wearing the Band.
+                            </p>
+                            <div class="sensorControls">
+                                <label>Subscribe</label>
+                                <div class="onoffswitch">
+                                    <input type="checkbox" 
+                                           name="onoffswitch" 
+                                           class="onoffswitch-checkbox" 
+                                           id="swBandContact">
+                                    <label class="onoffswitch-label" for="swBandContact">
+                                        <span class="onoffswitch-inner"></span>
+                                        <span class="onoffswitch-switch"></span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="sensorOutput" id="txtBandContact">
+                                
+                            </div>
+                        </li>
+                        <li>
+                            <h3>UV Level</h3>
+                            <p>Provides the current ultra-violet radiation exposure intensity.</p>
+                            <div class="sensorControls">
+                                <label>Subscribe</label>
+                                <div class="onoffswitch">
+                                    <input type="checkbox" 
+                                           name="onoffswitch" 
+                                           class="onoffswitch-checkbox" 
+                                           id="swUV">
+                                    <label class="onoffswitch-label" for="swUV">
+                                        <span class="onoffswitch-inner"></span>
+                                        <span class="onoffswitch-switch"></span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="sensorOutput" id="txtUV">
+                                
+                            </div>
+
+                        </li>
+                        <li>
+                            <h3>Skin Temperature</h3>
+                            <p>Provides the current skin temperature of the wearer in degrees Celius (&#176;c)</p>
+                            <div class="sensorControls">
+                                <label>Subscribe</label>
+                                <div class="onoffswitch">
+                                    <input type="checkbox" 
+                                           name="onoffswitch" 
+                                           class="onoffswitch-checkbox" 
+                                           id="swSkinTemp">
+                                    <label class="onoffswitch-label" for="swSkinTemp">
+                                        <span class="onoffswitch-inner"></span>
+                                        <span class="onoffswitch-switch"></span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="sensorOutput" id="txtSkinTemp">
+                                
+                            </div>
+                        </li>
+                        <li>
+                            <h3>Pedometer</h3>
+                            <p>Provides the total number of steps the wearer has taken.</p>
+                            <div class="sensorControls">
+                                <label>Subscribe</label>
+                                <div class="onoffswitch">
+                                    <input type="checkbox" 
+                                           name="onoffswitch" 
+                                           class="onoffswitch-checkbox" 
+                                           id="swSteps">
+                                    <label class="onoffswitch-label" for="swSteps">
+                                        <span class="onoffswitch-inner"></span>
+                                        <span class="onoffswitch-switch"></span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="sensorOutput" id="txtSteps">
+                                
+                            </div>                            
+                        </li>
+                        <li>
+                            <h3>Distance</h3>
+                            <p>Provides the total distance in centimeters, current speed in centimeters per second (cm/s),
+current pace in milliseconds per meter (ms/m), and the current pedometer mode (such as
+walking or running).</p>
+                            <div class="sensorControls">
+                                <label>Subscribe</label>
+                                <div class="onoffswitch">
+                                    <input type="checkbox" 
+                                           name="onoffswitch" 
+                                           class="onoffswitch-checkbox" 
+                                           id="swDistance">
+                                    <label class="onoffswitch-label" for="swDistance">
+                                        <span class="onoffswitch-inner"></span>
+                                        <span class="onoffswitch-switch"></span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="sensorOutput" id="txtDistance">
+                                
+                            </div>  
+                        </li>
+
+                        <li>
+                            <h3>HeartRate</h3>
+                            <p>Provides the number of beats per minute, also indicates if the heart rate sensor is fully
+locked onto the wearer&apos;s heart rate.</p>
+                            <div class="sensorControls">
+                                <label>Subscribe</label>
+                                <div class="onoffswitch">
+                                    <input type="checkbox" 
+                                           name="onoffswitch" 
+                                           class="onoffswitch-checkbox" 
+                                           id="swHR">
+                                    <label class="onoffswitch-label" for="swHR">
+                                        <span class="onoffswitch-inner"></span>
+                                        <span class="onoffswitch-switch"></span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="sensorOutput" id="txtHR">
+                                
+                            </div>  
+                        </li>
+                        <li>
+                            <h3>Accelerometer</h3>
+                            <p>Provides X, Y, and Z acceleration in g units. 1 g = 9.81 meters per second squared (m/s<sup>2</sup>).</p>
+                            <div class="sensorControls">
+                                <label>Subscribe</label>
+                                <div class="onoffswitch">
+                                    <input type="checkbox" 
+                                           name="onoffswitch" 
+                                           class="onoffswitch-checkbox" 
+                                           id="swAccel">
+                                    <label class="onoffswitch-label" for="swAccel">
+                                        <span class="onoffswitch-inner"></span>
+                                        <span class="onoffswitch-switch"></span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="sensorOutput" id="txtAccel">
+                                
+                            </div>                              
+                        </li>
+                        <li>
+                            <h3>Gyroscope</h3>
+                            <p>Provides X, Y, and Z angular velocity in degrees per second (&#176;/sec) units.</p>
+                            <div class="sensorControls">
+                                <label>Subscribe</label>
+                                <div class="onoffswitch">
+                                    <input type="checkbox" 
+                                           name="onoffswitch" 
+                                           class="onoffswitch-checkbox" 
+                                           id="swGyro">
+                                    <label class="onoffswitch-label" for="swGyro">
+                                        <span class="onoffswitch-inner"></span>
+                                        <span class="onoffswitch-switch"></span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="sensorOutput" id="txtGyro">
+                                
+                            </div>                              
+                        </li>
+                    </ul>
+                </div>                
+
+            </li>
+            
+            <li id="tilesView">
+
+                <a href="#tilesView">Tiles</a>
+
+                <div class="sub-view">
+                    This section demonstrates how to create and manage tiles on the band.
+                    <br><br><br>
+                    <ul>
+                        <li>
+                            <h3>Tile space info</h3>
+                            <p>See how many open tile slots are available.</p>
+                            <button class="actionButton" 
+                                    id="btnGetTileSlots">Get Tile Space Count</button>
+                        </li>
+                        <li>
+                            <h3>Create a Tile</h3>
+                            <p>Create a tile titled 'PhoneGap' with a guid using icon assets from the app package. This call will fail if a tile already exists with the guid, or if there are no empty tile slots.</p>
+                            <button class="actionButton"
+                                    id="btnCreateTile">Create Tile</button>
+                        </li>
+                        <li>
+                            <h3>Remove a Tile</h3>
+                            <p>Remove the tile titled 'PhoneGap' by it's guid. This call will return an error if the tile does not exist.
+                            </p>
+                            <button class="actionButton" 
+                                    id="btnRemoveTile">Remove Tile</button>
+                        </li>
+                        <li>
+                            <h3>Tile Messaging</h3>
+                            <p>Send a message to our tile.</p>
+                            <label for="txtMessageTitle">Title</label>
+                            <input type="text" id="txtMessageTitle"></input>
+                            <div style="clear:both;"></div>
+
+                            <label for="taMessageBody">Body</label>
+                            <textarea id="taMessageBody"></textarea>
+                            <div style="clear:both;"></div>
+
+                            <button class="actionButton" 
+                                    id="btnSendTileMessage">Send Tile Message</button>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            
+            <li id="personalizeView">
+                <a href="#personalizeView">Personalize</a>
+                <div class="sub-view">
+                    <ul>
+                        <li>
+                            <h3>Get Theme Colors</h3>
+
+                            <button class="actionButton" 
+                                    id="btnGetTheme">Get Theme</button>
+                         </li>   
+                        <li>
+                            <h3>Set Theme Colors</h3>
+                            <p></p>
+
+                            <label for="txtBaseColor">Base Color</label>
+                            <input type="text" id="txtBaseColor" value="#"></input>
+                            <div style="clear:both;"></div>
+
+                            <label for="txtHLColor">HighLight Color</label>
+                            <input type="text" id="txtHLColor" value="#"></input>
+                            <div style="clear:both;"></div>
+
+                            <label for="txtHiContColor">Hich Contrast Color</label>
+                            <input type="text" id="txtHiContColor" value="#"></input>
+                            <div style="clear:both;"></div>
+
+                            <label for="txtLLColor">LowLight Color</label>
+                            <input type="text" id="txtLLColor" value="#"></input>
+                            <div style="clear:both;"></div>
+
+                            <label for="txtSecTextColor">Secondary Text Color</label>
+                            <input type="text" id="txtSecTextColor" value="#"></input>
+                            <div style="clear:both;"></div>
+
+                            <label for="txtMutedColor">Muted Color</label>
+                            <input type="text" id="txtMutedColor" value="#"></input>
+                            <div style="clear:both;"></div>                                                                                         
+                            <button class="actionButton" 
+                                    id="btnSendTheme">Set Theme</button>
+                        </li>
+                    </ul>    
+                </div>
+            </li>
+        
+        </ul>
+        
+    </div>
+
+        
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="index.js"></script>
+    </body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8" />
+	<title>SenseLife | Emergency Contact</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+	
+	<!-- ================== BEGIN BASE CSS STYLE ================== -->
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+	<link href="assets/plugins/jquery-ui/themes/base/minified/jquery-ui.min.css" rel="stylesheet" />
+	<link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+	<link href="assets/css/animate.min.css" rel="stylesheet" />
+	<link href="assets/css/style.min.css" rel="stylesheet" />
+	<link href="assets/css/style-responsive.min.css" rel="stylesheet" />
+	<link href="assets/css/theme/default.css" rel="stylesheet" id="theme" />
+	<!-- ================== END BASE CSS STYLE ================== -->
+	
+	<!-- ================== BEGIN BASE JS ================== -->
+	<script src="assets/plugins/pace/pace.min.js"></script>
+	<!-- ================== END BASE JS ================== -->
+</head>
+<body>
+	<!-- begin #page-loader -->
+	<div id="page-loader" class="fade in"><span class="spinner"></span></div>
+	<!-- end #page-loader -->
+	
+	<!-- begin #page-container -->
+	<div id="page-container" class="fade page-sidebar-fixed page-header-fixed">
+		<!-- begin #header -->
+		<div id="header" class="header navbar navbar-default navbar-fixed-top">
+			<!-- begin container-fluid -->
+			<div class="container-fluid">
+				<!-- begin mobile sidebar expand / collapse button -->
+				<div class="navbar-header">
+					<a href="index.html" class="navbar-brand"><span class="navbar-logo"></span>SenseLife</a>
+					<button type="button" class="navbar-toggle" data-click="sidebar-toggled">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<!-- end mobile sidebar expand / collapse button -->
+				
+				<!-- begin header navigation right -->
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown navbar-user">
+						<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+							<img src="assets/img/user-13.jpg" alt="" /> 
+							<span class="hidden-xs">Hello, User</span> <b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu animated fadeInLeft">
+							<li class="arrow"></li>
+							<li class="divider"></li>
+							<li><a href="login.html">Log Out</a></li>
+						</ul>
+					</li>
+				</ul>
+				<!-- end header navigation right -->
+			</div>
+			<!-- end container-fluid -->
+		</div>
+		<!-- end #header -->
+		
+		<!-- begin #sidebar -->
+		<div id="sidebar" class="sidebar">
+			<!-- begin sidebar scrollbar -->
+			<div data-scrollbar="true" data-height="100%">
+				<!-- begin sidebar user -->
+				<ul class="nav">
+					<li class="nav-profile">
+						<div class="image">
+							<a href="javascript:;"><img src="assets/img/user-13.jpg" alt="" /></a>
+						</div>
+						<div class="info">
+							Hello, User
+							<small></small>
+						</div>
+					</li>
+				</ul>
+				<!-- end sidebar user -->
+				<!-- begin sidebar nav -->
+				<ul class="nav">
+					<li class="nav-header">Navigation</li>
+					
+					<li><a href="dashboard.html"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+					<li><a href="devices.html"><i class="fa fa-laptop"></i> <span>Devices</span></a></li>
+					<!-- <li><a href="emergency.html"><i class="fa fa-life-saver"></i> <span>Emergency Contacts</span></a></li> -->
+					<li><a href="userprofile.html"><i class="fa fa-user"></i> <span>Authorize Data</span></a></li>
+					<!-- begin sidebar minify button -->
+					<li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="fa fa-angle-double-left"></i></a></li>
+					<!-- end sidebar minify button -->
+				</ul>
+				<!-- end sidebar nav -->
+			</div>
+			<!-- end sidebar scrollbar -->
+		</div>
+		<div class="sidebar-bg"></div>
+		<!-- end #sidebar -->
+		
+		<!-- begin #content -->
+		<div id="content" class="content">
+			<!-- begin page-header -->
+			<h1 class="page-header">Authorize Data</h1>
+			<!-- end page-header -->
+			
+			<!-- begin row -->
+			<div class="row">
+				<!-- begin col-6 -->
+				<div class="col-md-8">
+					<!-- begin panel -->
+					<div class="panel panel-inverse" data-sortable-id="form-stuff-1">
+						<div class="panel-heading">
+							<h4 class="panel-title">Your Contacts</h4>
+						</div>
+						<div class="panel-body">
+							<table class="table table-responsibe table-striped">
+								<thead>
+									<tr>
+										<th>Contact Name</th>
+										<th>Relationship</th>
+										<th>&nbsp;</th>
+									</tr>
+								</thead>
+
+								<tbody id="devicelist">
+									<tr>
+										<td>Gokarna</td>
+										<td>Brother</td>
+										<td><a href="#" class="btn btn-xs btn-info">Authorize</a></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<!-- end panel -->
+
+					<div class="panel panel-inverse" data-sortable-id="form-stuff-1">
+						<div class="panel-heading">
+							<h4 class="panel-title">Authorize via email</h4>
+						</div>
+						<div class="panel-body">
+							<form id="authorizeEmail" method="POST" action="#" accept-charset="UTF-8" class="form-horizontal">
+						        <div class="form-group">
+						            <label for="password" class="col-md-2 control-label">Email address:</label>
+						            <div class="col-sm-10">
+						              <input class="form-control" placeholder="email" name="email" type="email" required="true">
+						            </div>
+						        </div>
+						        <div class="form-group">
+						            <label class="col-sm-2 control-label">&nbsp;</label>
+						            <div class="col-sm-10">
+						              <input class="btn btn-sm btn-primary" type="submit" value="Authorize">
+						            </div>
+						        </div>
+							</form>
+						</div>
+					</div>
+					<!-- end panel -->
+
+					<div class="panel panel-inverse" data-sortable-id="form-stuff-1">
+						<div class="panel-heading">
+							<h4 class="panel-title">Authorize via phone</h4>
+						</div>
+						<div class="panel-body">
+							<form method="POST" action="#" accept-charset="UTF-8" class="form-horizontal">
+						        <div class="form-group">
+						            <label for="password" class="col-md-2 control-label">Phone Number:</label>
+						            <div class="col-sm-10">
+						              <input class="form-control" placeholder="phone number" name="phone" type="phone">
+						            </div>
+						        </div>
+						        <div class="form-group">
+						            <label class="col-sm-2 control-label">&nbsp;</label>
+						            <div class="col-sm-10">
+						              <input class="btn btn-sm btn-primary" type="submit" value="Authorize">
+						            </div>
+						        </div>
+							</form>
+						</div>
+					</div>
+					<!-- end panel -->
+					
+
+				</div>
+				<!-- end col-6 -->
+
+			</div>
+			<!-- end row -->
+
+		</div>
+		<!-- end #content -->
+
+
+		<!-- begin scroll to top btn -->
+		<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
+		<!-- end scroll to top btn -->
+	</div>
+	<!-- end page container -->
+
+	<!-- ================== BEGIN BASE JS ================== -->
+	<script src="assets/plugins/jquery/jquery-1.9.1.min.js"></script>
+	<script src="assets/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
+	<script src="assets/plugins/jquery-ui/ui/minified/jquery-ui.min.js"></script>
+	<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+	<!--[if lt IE 9]>
+		<script src="assets/crossbrowserjs/html5shiv.js"></script>
+		<script src="assets/crossbrowserjs/respond.min.js"></script>
+		<script src="assets/crossbrowserjs/excanvas.min.js"></script>
+		<![endif]-->
+		<script src="assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+		<script src="assets/plugins/jquery-cookie/jquery.cookie.js"></script>
+		<script src="common.js"></script>
+		<!-- ================== END BASE JS ================== -->
+
+		<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+		<script src="assets/js/apps.min.js"></script>
+		<!-- ================== END PAGE LEVEL JS ================== -->
+
+		<script>
+		
+				function populateEmergencyContacts(){
+					
+					$.get(baseurl+"getallemergency/"+userid,function(data){
+						//console.log(data);
+						
+						var text = "";
+						$.each(data.data,function(i,value){
+							text += "<tr>";
+							text+="<td>"+value.name+"</td>";
+							text+="<td>"+value.relationship+"</td>";
+							text+="<td><a href='#' data-email='"+value.email+"' data-name='"+value.name+"'  data-id='"+value.id+"' class='btn btn-xs btn-info authorize'>Authorize</a></td>"
+							text+="</tr>"
+						});
+						$("#devicelist").html(text);
+						$("a.authorize").one("click",function(){
+							var email = $(this).data("email");
+							var name = $(this).data("name");
+							var id = $(this).data("id");
+							var email = $(this).data("email");
+							sendAuthorizationEmail(email,name,userid,id);
+						});
+
+						
+					});
+					
+				}
+
+
+
+			function sendAuthorizationEmail(email,name,userid,id){
+				var obj = {};
+				obj["email"] = email;
+				obj["name"] = name;
+				obj["userid"] = userid;
+				obj["id"] = id;
+				console.log(obj);
+				$.post(baseurl+"emailgraph",obj,function(data){
+					console.log(data);
+					alert("Authorization email has been sent.");
+					//populateDevices();
+				});
+
+			}
+			$(document).ready(function() {
+				App.init();
+				populateEmergencyContacts();
+				$("#authorizeEmail").submit(function(e){
+					e.preventDefault();
+					var email = $("input[name=email]").val();
+					console.log(email);
+					sendAuthorizationEmail(email,"Awesome user",userid,'1');
+				});
+			});
+		</script>
+	</body>
+	</html>
