@@ -4,7 +4,7 @@
 ##Description:##
 • SenseLife is an android and web application which allows user to connect to all the wearable health sensors. It comes with heart rate monitoring system which alerts the user's emergency contacts in case of an emergency.
  
-• User's health data such as heart rate, no. of calories, distance traveled, etc. are stored in NoSQL database and can be visualized online. 
+• User's health data such as heart rate, no. of calories, distance travelled, etc. are stored in MySQL database and can be visualized online. 
 
 • User or his family can login to the website and analyze his health data of the previous month. It is aimed at users of age group 40 - 60 who use wearable health sensors and reluctant to install and learn about using a separate complimentary application that comes with the manufacturer's device. 
 
