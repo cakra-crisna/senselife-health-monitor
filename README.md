@@ -8,7 +8,7 @@
 
 • User or his family can login to the website and analyze his health data of the previous month. It is aimed at users of age group 40 - 60 who use wearable health sensors and reluctant to install and learn about using a separate complimentary application that comes with the manufacturer's device. 
 
-• Provided user functionality to remotely monitor his health data in real-time and visualize the health data using D3.js
+• Provided user functionality to remotely monitor his health data in real-time and visualize the health data in form of graphs.
 User's Health practitioner can analyze his physiological metric data such as heart rate, body temperature, steps covered in a day, etc over a prolonged period and help them give the right feedback and advise in order to improve the overall health of the user.
 
 • Curently integrated Microsoft Band with the application. 
